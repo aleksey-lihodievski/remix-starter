@@ -1,17 +1,17 @@
 import { createStitches } from '@stitches/react';
 
-export const { styled, createTheme } = createStitches({
-  media: {
-    xs: '(min-width: 576px)',
-    sm: '(min-width: 768px)',
-    md: '(min-width: 992px)',
-    lg: '(min-width: 1200px)',
-    xl: '(min-width: 1536px)',
-  },
+export const { styled, createTheme, getCssText } = createStitches({
+  // media: {
+  //   xs: '(min-width: 576px)',
+  //   sm: '(min-width: 768px)',
+  //   md: '(min-width: 992px)',
+  //   lg: '(min-width: 1200px)',
+  //   xl: '(min-width: 1536px)',
+  // },
   theme: {
     colors: {
       commonBlack: '#000',
-      commonWhite: '#000',
+      commonWhite: '#fff',
 
       primaryMain: '#41a9FF',
       primaryLight: '#84c5fb',
@@ -69,15 +69,17 @@ export const { styled, createTheme } = createStitches({
       untitled: 'Untitled Sans, apple-system, sans-serif',
       mono: 'Söhne Mono, menlo, monospace',
     },
-    fontWeights: {},
-    lineHeights: {},
-    letterSpacings: {},
-    sizes: {},
-    borderWidths: {},
-    borderStyles: {},
-    radii: {},
-    shadows: {},
-    zIndices: {},
-    transitions: {},
+    //   fontWeights: {},
+    //   lineHeights: {},
+    //   letterSpacings: {},
+    //   sizes: {},
+    //   borderWidths: {},
+    //   borderStyles: {},
+    //   radii: {},
+    //   shadows: {},
+    //   zIndices: {},
+    //   transitions: {},
   },
 });
+
+// css.global(reset);
