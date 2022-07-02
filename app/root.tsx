@@ -14,7 +14,6 @@ import {
 } from '@remix-run/react';
 import { RecoilRoot } from 'recoil';
 
-// import ThemeProvider from './components/ThemeProvider';
 import { getColorScheme } from './services/cookies';
 
 export const meta: MetaFunction = () => ({
@@ -40,8 +39,6 @@ export default function App() {
         <head>
           <Meta />
           <Links />
-          {/* <style dangerouslySetInnerHTML={{ __html: getCssText() }} /> */}
-          {/* <style>{getCssText()}</style> */}
         </head>
         <body className={colorScheme}>
           <Outlet />

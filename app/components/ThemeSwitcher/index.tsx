@@ -1,10 +1,7 @@
 import { ActionFunction, redirect } from '@remix-run/node';
 import { Form } from '@remix-run/react';
-import { useRecoilState, useRecoilValue } from 'recoil';
 
-import Background from '~/components/Background';
-import ThemeSwitcher from '~/components/ThemeSwitcher';
-import textState, { charCountState } from '~/recoil/example';
+import Button from '~/components/Button';
 import { getColorScheme, colorSchemeCookie } from '~/services/cookies';
 import { lightTheme, darkTheme } from '~/themes';
 
@@ -23,16 +20,9 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function Index() {
-  const [text] = useRecoilState(textState);
-  const charCount = useRecoilValue(charCountState);
-
   return (
-    <Background
-      style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}
-    >
-      <p>{text}</p>
-      <p>{charCount}</p>
-      <ThemeSwitcher />
-    </Background>
+    <Form method="post">
+      <Button type="submit">hello</Button>
+    </Form>
   );
 }

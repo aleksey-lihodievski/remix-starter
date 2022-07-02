@@ -2,7 +2,7 @@ import type { EntryContext } from '@remix-run/node';
 import { RemixServer } from '@remix-run/react';
 import { renderToString } from 'react-dom/server';
 
-import { getCssText } from './theme/stitches.config';
+import { getCssText } from './themes';
 
 export default async function handleRequest(
   request: Request,

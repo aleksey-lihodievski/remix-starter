@@ -1,5 +1,4 @@
-import { styled } from '~/theme/stitches.config';
-// import { styled } from '@stitches/react';
+import { styled } from '~/themes';
 
 const Button = styled('button', {
   background: '$primaryMain',

@@ -1,5 +1,5 @@
-import { styled } from '~/theme/stitches.config';
+import { styled } from '~/themes';
 
 export default styled('div', {
-  background: '$commonBlack',
+  background: '$commonWhite',
 });
