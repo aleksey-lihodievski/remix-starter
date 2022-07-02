@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react';
 
-export const { styled, createTheme } = createStitches({
+export const { styled, createTheme, getCssText, globalCss } = createStitches({
   media: {
     xs: '(min-width: 576px)',
     sm: '(min-width: 768px)',
@@ -11,7 +11,7 @@ export const { styled, createTheme } = createStitches({
   theme: {
     colors: {
       commonBlack: '#000',
-      commonWhite: '#000',
+      commonWhite: '#fff',
 
       primaryMain: '#41a9FF',
       primaryLight: '#84c5fb',
@@ -69,15 +69,52 @@ export const { styled, createTheme } = createStitches({
       untitled: 'Untitled Sans, apple-system, sans-serif',
       mono: 'Söhne Mono, menlo, monospace',
     },
-    fontWeights: {},
-    lineHeights: {},
-    letterSpacings: {},
-    sizes: {},
-    borderWidths: {},
-    borderStyles: {},
-    radii: {},
-    shadows: {},
-    zIndices: {},
-    transitions: {},
+    //   fontWeights: {},
+    //   lineHeights: {},
+    //   letterSpacings: {},
+    //   sizes: {},
+    //   borderWidths: {},
+    //   borderStyles: {},
+    //   radii: {},
+    //   shadows: {},
+    //   zIndices: {},
+    //   transitions: {},
   },
 });
+
+globalCss({
+  '*, *::before, *::after': {
+    boxSizing: 'border-box',
+    animationDuration: '0.01ms !important',
+    animationIterationCount: '1 !important',
+    transitionDuration: '0.01ms !important',
+    scrollBehavior: 'auto !important',
+  },
+  'body, h1, h2, h3, h4, p, figure, figcaption, blockquote, dl, dd': {
+    margin: 0,
+  },
+  "ul[role='list'], ol[role='list']": { listStyle: 'none' },
+  'html:focus-within': {
+    scrollBehavior: 'smooth',
+  },
+  body: {
+    color: '$commonBlack',
+    backgroundColor: '$commonWhite',
+    minHeight: '100vh',
+    textRendering: 'optimizeSpeed',
+    lineHeight: 1.5,
+  },
+  'a:not([class])': {
+    textDecorationSkipInk: 'auto',
+  },
+  'img, picture': {
+    maxWidth: '100%',
+    display: 'block',
+  },
+  'input, button, textarea, select': { font: 'inherit' },
+  '@media (prefers-reduced-motion: reduce)': {
+    'html:focus-within': {
+      scrollBehavior: 'auto',
+    },
+  },
+})();
