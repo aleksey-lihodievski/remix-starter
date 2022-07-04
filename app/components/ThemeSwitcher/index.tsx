@@ -1,28 +1,32 @@
-import { ActionFunction, redirect } from '@remix-run/node';
-import { Form } from '@remix-run/react';
+import { Form, useLocation } from '@remix-run/react';
 
 import Button from '~/components/Button';
-import { getColorScheme, colorSchemeCookie } from '~/services/cookies';
-import { lightTheme, darkTheme } from '~/themes';
 
-export const action: ActionFunction = async ({ request }) => {
-  const currentColorScheme = await getColorScheme(request);
-  const newColorScheme =
-    currentColorScheme === lightTheme.className
-      ? darkTheme.className
-      : lightTheme.className;
+// place this where you use Theme switching
 
-  return redirect(request.url, {
-    headers: {
-      'Set-Cookie': await colorSchemeCookie.serialize(newColorScheme),
-    },
-  });
-};
+// export const action: ActionFunction = async ({ request }) => {
+//   const currentColorScheme = await getColorScheme(request);
+//   const newColorScheme =
+//     currentColorScheme === lightTheme.className
+//       ? darkTheme.className
+//       : lightTheme.className;
 
-export default function Index() {
+//   return redirect(request.url, {
+//     headers: {
+//       'Set-Cookie': await colorSchemeCookie.serialize(newColorScheme),
+//     },
+//   });
+// };
+
+const ThemeSwitcher: React.FC = () => {
+  const { pathname } = useLocation();
+
   return (
-    <Form method="post">
-      <Button type="submit">hello</Button>
+    <Form method="post" action="/api/theme/toggle">
+      <Button type="submit">Toggle Theme</Button>
+      <input type="hidden" name="redirectTo" value={pathname} />
     </Form>
   );
-}
+};
+
+export default ThemeSwitcher;

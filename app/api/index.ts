@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
 // import { getToken } from 'services/storage';
 
-const baseURL = process.env.REACT_APP_BASE_API_URL;
+const baseURL = process.env.BASE_API_URL;
 
 export const http = axios.create({
   baseURL,
